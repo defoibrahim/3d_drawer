@@ -14,14 +14,14 @@ class BodyView extends GetView<HomeController> {
         leading: Builder(
           builder: (context) {
             return IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               onPressed: () => controller.open(),
             );
           },
         ),
-        title: Text('Details title'),
+        title: const Text('Details title'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Details body'),
       ),
     );

@@ -1,8 +1,6 @@
 import 'package:drawer_3d/app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../data/drawer_item.dart';
 import '../controllers/home_controller.dart';
 
 class DrawerView extends GetView<HomeController> {
@@ -47,7 +45,7 @@ class DrawerView extends GetView<HomeController> {
       );
 
   Widget buildDrawerItem() => Column(
-        children: DrawerItem.all
+        children: controller.all
             .map(
               (item) => ListTile(
                 onTap: () {

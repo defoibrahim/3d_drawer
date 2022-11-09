@@ -1,4 +1,3 @@
-import 'package:drawer_3d/app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -12,7 +11,6 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<HomeController>();
     return Scaffold(
       backgroundColor: Colors.grey,
       body: GestureDetector(
@@ -25,51 +23,9 @@ class HomeView extends GetView<HomeController> {
           builder: (context, _) {
             return Stack(
               children: [
-                Transform.translate(
-                  offset: Offset(
-                    controller.maxSlide.value *
-                        (controller.animationController.value - 1),
-                    0,
-                  ),
-                  child: Transform(
-                    transform: Matrix4.identity()
-                      ..setEntry(3, 2, .001)
-                      ..rotateY(
-                        math.pi /
-                            2 *
-                            (1 - controller.animationController.value),
-                      ),
-                    alignment: Alignment.centerRight,
-                    child: const DrawerView(),
-                  ),
-                ),
-                Transform.translate(
-                  offset: Offset(
-                    controller.maxSlide.value *
-                        controller.animationController.value,
-                    0,
-                  ),
-                  child: Transform(
-                    transform: Matrix4.identity()
-                      ..setEntry(3, 2, .001)
-                      ..rotateY(
-                        -math.pi / 2 * controller.animationController.value,
-                      ),
-                    alignment: Alignment.centerLeft,
-                    child: const BodyView(),
-                  ),
-                ),
-                Positioned(
-                  top: 4.0 + MediaQuery.of(context).padding.top,
-                  left: 
-                      (controller.animationController.value *
-                          controller.maxSlide.value) - 50,
-                  child: IconButton(
-                    icon: Icon(Icons.menu),
-                    onPressed: controller.toggle,
-                    color: Colors.white,
-                  ),
-                ),
+                buildDrawerView(),
+                buildBodyView(),
+                buildMenu(),
               ],
             );
           },
@@ -77,4 +33,49 @@ class HomeView extends GetView<HomeController> {
       ),
     );
   }
+
+  Widget buildDrawerView() => Transform.translate(
+        offset: Offset(
+          controller.maxSlide.value *
+              (controller.animationController.value - 1),
+          0,
+        ),
+        child: Transform(
+          transform: Matrix4.identity()
+            ..setEntry(3, 2, .001)
+            ..rotateY(
+              math.pi / 2 * (1 - controller.animationController.value),
+            ),
+          alignment: Alignment.centerRight,
+          child: const DrawerView(),
+        ),
+      );
+
+  Widget buildBodyView() => Transform.translate(
+        offset: Offset(
+          controller.maxSlide.value * controller.animationController.value,
+          0,
+        ),
+        child: Transform(
+          transform: Matrix4.identity()
+            ..setEntry(3, 2, .001)
+            ..rotateY(
+              -math.pi / 2 * controller.animationController.value,
+            ),
+          alignment: Alignment.centerLeft,
+          child: const BodyView(),
+        ),
+      );
+
+  Widget buildMenu() => Positioned(
+        top: 4.0 + MediaQuery.of(Get.context!).padding.top,
+        left:
+            (controller.animationController.value * controller.maxSlide.value) -
+                50,
+        child: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: controller.toggle,
+          color: Colors.white,
+        ),
+      );
 }

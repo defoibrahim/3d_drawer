@@ -1,19 +1,56 @@
-import 'package:flutter/animation.dart';
-import 'package:flutter/cupertino.dart';
+
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+
+import '../../../data/models/drawer_model.dart';
 
 class HomeController extends GetxController
     with GetSingleTickerProviderStateMixin {
   late AnimationController animationController;
   final maxSlide = 255.0.obs;
   RxBool canBeDragged = false.obs;
-  
+
   RxBool flip = false.obs;
 
   double get slide => maxSlide.value * animationController.value;
   double get scale => 1 - (animationController.value * 0.3);
   double get minDragStartEdge => 60;
   double get maxDragStartEdge => maxSlide.value - 16;
+
+  static final home = DrawerModel(
+    title: 'Home',
+    icone: FontAwesomeIcons.house,
+  );
+  static final explorer = DrawerModel(
+    title: 'Explore',
+    icone: Icons.explore,
+  );
+  static final favourites = DrawerModel(
+    title: 'Favourites',
+    icone: Icons.favorite,
+  );
+  static final setting = DrawerModel(
+    title: 'Settings',
+    icone: Icons.settings,
+  );
+  static final profile = DrawerModel(
+    title: 'Profile',
+    icone: FontAwesomeIcons.userLarge,
+  );
+  static final logout = DrawerModel(
+    title: 'Logout',
+    icone: Icons.logout,
+  );
+
+   final List<DrawerModel> all = [
+    home,
+    explorer,
+    favourites,
+    setting,
+    profile,
+    logout
+  ];
 
   @override
   void onInit() {
@@ -53,7 +90,6 @@ class HomeController extends GetxController
   }
 
   void onDragEnd(DragEndDetails details) {
-  
     double kMinFlingVelocity = 365.0;
     if (animationController.isDismissed || animationController.isCompleted) {
       return;

@@ -18,49 +18,49 @@ final ThemeData appTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       primary: kMainColor,
-      textStyle: TextStyle(
+      textStyle: const TextStyle(
         fontSize: 16,
         color: kMainTextColor,
       ),
     ),
   ),
-  inputDecorationTheme: InputDecorationTheme(
+  inputDecorationTheme: const InputDecorationTheme(
     hintStyle: TextStyle(
       fontSize: 13,
-      color: const Color(0xffa0a0a0),
+      color: Color(0xffa0a0a0),
     ),
     labelStyle: TextStyle(
       fontSize: 13,
-      color: const Color(0xffa0a0a0),
+      color: Color(0xffa0a0a0),
     ),
     alignLabelWithHint: true,
-    focusedBorder: const OutlineInputBorder(
+    focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(
         color: kMainColor,
       ),
     ),
-    border: const OutlineInputBorder(
+    border: OutlineInputBorder(
       borderSide: BorderSide(
         color: Color(0xffa0a0a0),
       ),
     ),
   ),
-  tabBarTheme: TabBarTheme(
+  tabBarTheme: const TabBarTheme(
       labelStyle: TextStyle(
           fontSize: 16, color: kMainTextColor, fontWeight: FontWeight.bold),
       unselectedLabelStyle: TextStyle(
         fontSize: 16,
         color: kMainTextColor,
       )),
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     backgroundColor: kScaffoldBackroundColor,
     elevation: 2,
     centerTitle: true,
-    systemOverlayStyle: const SystemUiOverlayStyle(
+    systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.dark,
     ),
-    toolbarTextStyle: TextStyle(
+    toolbarTextStyle:  TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w700,
     ),
@@ -70,11 +70,11 @@ final ThemeData appTheme = ThemeData(
       color: kMainTextColor,
       fontFamily: 'Myriad Arabic',
     ),
-    iconTheme: IconThemeData(color: kMainTextColor),
+    iconTheme:  IconThemeData(color: kMainTextColor),
   ),
-  iconTheme: IconThemeData(color: kMainTextColor),
-  primaryIconTheme: IconThemeData(color: kMainTextColor),
-  colorScheme: ColorScheme.light(primary: kMainColor),
+  iconTheme: const IconThemeData(color: kMainTextColor),
+  primaryIconTheme: const IconThemeData(color: kMainTextColor),
+  colorScheme: const ColorScheme.light(primary: kMainColor),
   textSelectionTheme: const TextSelectionThemeData(cursorColor: kMainColor),
 );
 
@@ -89,12 +89,12 @@ final ThemeData appDarkTheme = ThemeData(
   errorColor: const Color(0xFFb11116),
   textButtonTheme: TextButtonThemeData(
     style: ElevatedButton.styleFrom(
-      textStyle: TextStyle(color: kWhiteColor),
+      textStyle: const TextStyle(color: kWhiteColor),
       primary: kWhiteColor,
     ),
   ),
   indicatorColor: kMainColor,
-  inputDecorationTheme: InputDecorationTheme(
+  inputDecorationTheme: const InputDecorationTheme(
     hintStyle: TextStyle(
       fontSize: 13,
     ),
@@ -102,12 +102,12 @@ final ThemeData appDarkTheme = ThemeData(
       fontSize: 13,
     ),
     alignLabelWithHint: true,
-    focusedBorder: const OutlineInputBorder(
+    focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(
         color: Color(0xffa0a0a0),
       ),
     ),
-    border: const OutlineInputBorder(
+    border: OutlineInputBorder(
       borderSide: BorderSide(
         color: Color(0xffa0a0a0),
       ),
@@ -116,24 +116,24 @@ final ThemeData appDarkTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       primary: kMainColor,
-      textStyle: TextStyle(
+      textStyle: const TextStyle(
         fontSize: 16,
         color: kWhiteColor,
       ),
     ),
   ),
-  tabBarTheme: TabBarTheme(
-      labelStyle: TextStyle(
+  tabBarTheme: const TabBarTheme(
+      labelStyle:  TextStyle(
           fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
-      unselectedLabelStyle: TextStyle(
+      unselectedLabelStyle:  TextStyle(
         fontSize: 16,
         color: Colors.white,
       )),
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     backgroundColor: kScaffoldDarkBackroundColor,
     elevation: 0.0,
     centerTitle: true,
-    systemOverlayStyle: const SystemUiOverlayStyle(
+    systemOverlayStyle: SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.light,
     ),
@@ -149,8 +149,8 @@ final ThemeData appDarkTheme = ThemeData(
     ),
     iconTheme: IconThemeData(color: Colors.white),
   ),
-  colorScheme: ColorScheme.dark(primary: kMainColor),
-  iconTheme: IconThemeData(color: Colors.white),
-  primaryIconTheme: IconThemeData(color: Colors.white),
+  colorScheme: const ColorScheme.dark(primary: kMainColor),
+  iconTheme: const IconThemeData(color: Colors.white),
+  primaryIconTheme: const IconThemeData(color: Colors.white),
   textSelectionTheme: const TextSelectionThemeData(cursorColor: kMainColor),
 );
