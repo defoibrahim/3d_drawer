@@ -10,12 +10,20 @@ dependencies:
   get: 4.6.5
   flutter: 
     sdk: flutter
+  font_awesome_flutter: ^10.2.1
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
   flutter_test: 
     sdk: flutter
 
-flutter: 
-  uses-material-design: true
 
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/icon_launcher.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
